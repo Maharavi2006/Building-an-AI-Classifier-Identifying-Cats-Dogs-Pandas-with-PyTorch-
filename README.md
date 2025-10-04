@@ -78,7 +78,7 @@ model.fc = nn.Sequential(
 )
 model = model.to(device)
 
-## 3. TRAINING
+# 3. TRAINING
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=0.001)
 
@@ -101,7 +101,7 @@ for epoch in range(EPOCHS):
     avg_loss = total_loss / len(train_dataset)
     print(f"Epoch [{epoch+1}/{EPOCHS}], Loss: {avg_loss:.4f}")
 
-## 4. EVALUATION
+# 4. EVALUATION
 model.eval()
 total_correct = 0
 total_samples = 0
@@ -117,7 +117,7 @@ with torch.no_grad():
 accuracy = total_correct / total_samples
 print(f"\nTest Accuracy: {accuracy*100:.2f}%")
 
-## 5. BONUS - Single Image Prediction
+# 5. BONUS - Single Image Prediction
 
 
 from PIL import Image
@@ -134,8 +134,8 @@ def predict_image(img_path):
     print(f"Prediction: {classes[pred.item()]}")
     print(f"Confidence: {conf.item()*100:.2f}%")
     return classes[pred.item()]
-```
 
+```
 ## OUTPUT:
 
 <img width="353" height="266" alt="image" src="https://github.com/user-attachments/assets/048a1e16-1094-451a-bce6-701da102313c" />
